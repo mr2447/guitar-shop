@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    background-color: #000000;
+}
+.hero_img img{
+    width: 600px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-left-radius:220px ;
+}
+.hero_txt{
+    text-align: center;
+    font-size: 4vw;
+    margin-top: 2em;
+    padding-left: 30px;
+    font-weight: 200;
+    color: whitesmoke;
+    text-shadow: .3px .3px 6px lightgray;
+}
