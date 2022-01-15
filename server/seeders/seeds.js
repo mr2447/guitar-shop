@@ -1,24 +1,25 @@
 const faker = require('faker');
 
 const db = require('../config/connection');
-const { Thought, User } = require('../models');
+const { Product, User} = require('../models');
 
 db.once('open', async () => {
-  // await Thought.deleteMany({});
+  await Product.deleteMany({});
   await User.deleteMany({});
 
   // create user data
   const userData = [];
 
-  for (let i = 0; i < 1; i += 1) {
+  for (let i = 0; i < 2; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = faker.internet.password();
-
+    // console.log({ username, email, password })
     userData.push({ username, email, password });
   }
 
-  const createdUsers = await User.collection.insertMany(userData);
+const createdUsers = await User.collection.insertMany(userData);
+
 
   // // create friends
   // for (let i = 0; i < 100; i += 1) {
@@ -35,23 +36,25 @@ db.once('open', async () => {
   //   await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
   // }
 
-  // // create thoughts
-  // let createdThoughts = [];
-  // for (let i = 0; i < 100; i += 1) {
-  //   const thoughtText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+  // create products
+  let createdProducts = [];
+  for (let i = 0; i < 2; i += 1) {
+    const brand = faker.lorem.words(Math.round(Math.random()) + 1);
+    const price = faker.random.number({'min': 10, 'max': 1000});
+    const condition = faker.lorem.words(Math.round(Math.random()) + 1);
+    
+    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+    const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-  //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-  //   const { username, _id: userId } = createdUsers.ops[randomUserIndex];
+    const createdProduct = await Product.create({ brand, condition, price, username });
 
-  //   const createdThought = await Thought.create({ thoughtText, username });
-
-  //   const updatedUser = await User.updateOne(
-  //     { _id: userId },
-  //     { $push: { thoughts: createdThought._id } }
-  //   );
-
-  //   createdThoughts.push(createdThought);
-  // }
+    const updatedUser = await User.updateOne(
+      { _id: userId },
+      { $push: { products: createdProduct._id } }
+    );
+      console.log(createdProduct)
+    createdProducts.push(createdProduct);
+  }
 
 //   // create reactions
 //   for (let i = 0; i < 100; i += 1) {
@@ -70,6 +73,6 @@ db.once('open', async () => {
 //     );
 //   }
 
-//   console.log('all done!');
-//   process.exit(0);
+  console.log('all done!');
+  process.exit(0);
 });
