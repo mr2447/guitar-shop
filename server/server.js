@@ -16,6 +16,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const fs = require('fs')
 const path = require('path')
+const { authMiddleware } = require('./utils/auth');
 
 // //set up multer to store uploaded files
 // const multer = require('multer')
@@ -71,6 +72,7 @@ const startServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
+    context: authMiddleware
   });
 
   //Start the Apollo server
