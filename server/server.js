@@ -32,7 +32,7 @@ const { authMiddleware } = require('./utils/auth');
 
 // const upload = multer({ storage: storage });
 
-// //set up get request 
+// // //set up get request 
 // app.get('/', (req, res ) => {
 //   imgModel.find({}, (err, items) => {
 //     if(err) {
