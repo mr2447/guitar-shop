@@ -8,6 +8,7 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+const path = require('path')
 
 // require mongoose model for image 
 // const imgModel = require('./models')
@@ -15,7 +16,7 @@ const app = express();
 // const bodyParser = require('body-parser')
 // const mongoose = require('mongoose')
 // const fs = require('fs')
-// const path = require('path')
+
 const { authMiddleware } = require('./utils/auth');
 
 // //set up multer to store uploaded files
@@ -92,7 +93,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // app.set("view engine", "ejs")
+//Serve up static assets
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(_dirname, '../client/build')));
+}
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'))
+})
 db.once('open', () => {
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);

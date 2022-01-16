@@ -9,7 +9,7 @@ import Home from './pages/Home'
 import EncodeBase64 from './components/Image'
 
 const httplinnk = createHttpLink({
-  uri: 'http://localhost:3001/graphql'
+  uri: '/graphql'
 });
 
 // const authLink = setContext((_,{ headers }) => {
