@@ -1,28 +1,38 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../utils/queries';
+import { QUERY_PRODUCTS, QUERY_ME } from '../utils/queries';
 import ProductList from '../components/ProductList'
-import EncodeBase64 from '../components/Image'
+import ProductForm from '../components/ProductForm'
+
+import Auth from '../utils/auth'
 
 const Home = () => {
+    const loggedIn = Auth.loggedIn();
     //use useQuery hook to make query request
     const { loading, data } = useQuery(QUERY_PRODUCTS)
     const products = data?.products || [];
-    console.log(products)
+    //use object destructuring to extract `data` from the useQuery Hook's response and rename it userData to be more descriptive
+    const {data: userData} = useQuery(QUERY_ME)
+    
     return (
       <main>
         <div>
-    <div>
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <div>
-        <ProductList products={products} title="Available guitars: " />
-        <EncodeBase64/>
+          {loggedIn && userData? (
+            <div>
+              <p>{userData.username}{' '} can fill in the form when logged in.</p>
+              <ProductForm />
+            </div>
+          ): null}
+          <div>
+            {loading ? (
+              <div>Loading...</div>
+            ) : (
+              <div>
+                <ProductList products={products} title="Available guitars: " />
+              </div>
+            )}
+          </div>
         </div>
-      )}
-    </div>
-  </div>
       </main>
     );
   };

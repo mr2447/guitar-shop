@@ -1,4 +1,6 @@
 import React from 'react';
+//link to a single product page?
+import { Link } from 'react-router-dom';
 
 const ProductList = ({ products, title }) => {
   if (!products.length) {
