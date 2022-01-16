@@ -42,7 +42,7 @@ const createdUsers = await User.collection.insertMany(userData);
     const brand = faker.lorem.words(Math.round(Math.random()) + 1);
     const price = faker.random.number({'min': 10, 'max': 100000});
     const condition = faker.lorem.words(Math.round(Math.random()) + 1);
-    
+
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 

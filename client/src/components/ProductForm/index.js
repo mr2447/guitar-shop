@@ -32,10 +32,12 @@ const ProductForm = () => {
         const { name: value } = event.target;
 
         setFormState({
-            ...formState,
-            [name]: value
-        });
+          ...formState, 
+          [name]: value
+        })
+        
     };
+    console.log(formState);
 
     //submit form
     const handleFormSubmit = async (event) => {
@@ -43,18 +45,24 @@ const ProductForm = () => {
         try {
             //execute addUser mutation and pass in variable data from form
             const { data } = await addProduct({
-                variable: { ...formState}
+                variables: { ...formState}
             });
+            
+            console.log(data)
+    
 
         } catch (e) {
             console.error(e)
         }
     }
 
+
   
     return(
+        <main>
         <div>
-            <EncodeBase64/>
+        <EncodeBase64 />
+        <div>
             <form onSubmit={handleFormSubmit}>
               <input
                 className='form-input'
@@ -62,7 +70,7 @@ const ProductForm = () => {
                 name='brand'
                 type='brand'
                 id='brand'
-                value={formState.brand}
+                defaultValue={formState.brand}
                 onChange={handleChange}
               ></input>
               <input
@@ -71,16 +79,17 @@ const ProductForm = () => {
                 name='condition'
                 type='condition'
                 id='condition'
-                value={formState.condition}
+                defaultValue={formState.condition}
                 onChange={handleChange}
               ></input>
               <input
+                
                 className='form-input'
                 placeholder='price'
                 name='price'
                 type='price'
                 id='price'
-                value={formState.price}
+                defaultValue= {formState.price}
                 onChange={handleChange}
               ></input>
               <button type='submit'>
@@ -89,6 +98,9 @@ const ProductForm = () => {
             </form>
             {error && <div>Add Product failed</div>}
         </div>
+            
+        </div>
+        </main>
     )
 };
 
