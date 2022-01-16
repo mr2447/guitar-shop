@@ -5,8 +5,8 @@ import { QUERY_PRODUCTS, QUERY_ME } from '../../utils/queries';
 import EncodeBase64 from '../Image'
 
 const ProductForm = () => {
-    const [formState, setFormState] = useState({ brand: '', price: '', condition: ''});
-    const { brand, price, condition } = formState;
+    const [formState, setFormState] = useState({ brand: '', price: '', condition: '', color: ''});
+    const { brand, price, condition, color } = formState;
     const [addProduct, { error }] = useMutation(ADD_PRODUCT)
     // ,{
     //     update(cache, {data: { addProduct }}) {
@@ -44,12 +44,12 @@ const ProductForm = () => {
         // console.log("typeof price", typeof parseInt(formState.price))
         
         try {
-          console.log("typeof brand",typeof formState.brand)
           const { data } = await addProduct({
             variables: {
               brand: formState.brand,
               price: parseInt(formState.price),
-              condition: formState.condition
+              condition: formState.condition,
+              color: formState.color
             }
           });
 
@@ -94,6 +94,13 @@ const ProductForm = () => {
                 name='condition'
                 type='condition'
                 defaultValue={condition}
+                onChange={handleChange}
+                ></input>
+                <input
+                placeholder='Optional: color'
+                name='color'
+                type='color'
+                defaultValue={color}
                 onChange={handleChange}
                 ></input>
               <button type='submit'>

@@ -19,6 +19,9 @@ const productSchema = new Schema(
         minlength: 1,
         maxlength: 50
     },
+    color: {
+      type: String
+    },
     createdAt: {
       type: Date,
       default: Date.now,

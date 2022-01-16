@@ -25,12 +25,13 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PRODUCT = gql`
-mutation addProduct($brand: String!, $price: Int!, $condition: String!){
-    addProduct(brand: $brand, price: $price, condition: $condition) {
+mutation addProduct($brand: String!, $price: Int!, $condition: String!, $color: String){
+    addProduct(brand: $brand, price: $price, condition: $condition, color: $color) {
       _id
       username
       brand
       condition
       price
+      color
     }
   }`
