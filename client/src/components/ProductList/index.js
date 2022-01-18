@@ -2,7 +2,7 @@ import React from 'react';
 //link to a single product page?
 import { Link } from 'react-router-dom';
 // import EncodeBase64 from '../Image'
-import CloudImage from '../Image'
+import CloudImage from '../ImageUpload'
 
 const ProductList = ({ products, title }) => {
   if (!products.length) {

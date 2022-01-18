@@ -1,25 +1,50 @@
 // METHOD #3 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-import React, { useState, useEffect  } from 'react'
-import images from '../../api-mock.json';
-import Axios from 'axios'
-import { getImages, searchImages } from '../../api';
+import React, { useState } from 'react';
+import Axios from 'axios';
+
+// import CloudImages from '../CloudinaryImages';
+import {AdvancedImage} from '@cloudinary/react';
+import {Cloudinary} from "@cloudinary/url-gen";
+import {fill} from "@cloudinary/url-gen/actions/resize";
+import Auth from '../../utils/auth'
+import ProductForm from "../ProductForm"
 
 const CloudImage = () => {
+
+    //UPLOAD IMAGE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     const [imageList, setImageList] = useState([]);
     const [imageSelected, setImageSelected] = useState("")
-  
-    
+    const [publicId, setpublicId ] = useState("")
+    const loggedIn = Auth.loggedIn()
+
+    // Create a Cloudinary instance and set your cloud name.
+    const cld = new Cloudinary({
+        cloud: {
+        cloudName: 'daz0iuak1'
+        }
+    });
+
 
     const uploadImage = () => {
         const formData = new FormData()
         formData.append("file", imageSelected)
         formData.append("upload_preset", "r3ez6njg")
         
-        Axios.post("https://api.cloudinary.com/v1_1/daz0iuak1/image/upload", formData)
+         Axios.post("https://api.cloudinary.com/v1_1/daz0iuak1/image/upload", formData)
         .then((response) => {
-            console.log(response);
+            console.log(response.data.secure_url)
+            const secureUrl = response.data.secure_url
+            setpublicId(secureUrl.substring(secureUrl.indexOf("upload/") + 7, secureUrl.indexOf(".png")));
+
         })
     };
+     
+    const myImage = cld.image(publicId);
+    myImage.resize(fill().width(250).height(250));
+    // console.log("myImage: ", myImage)
+
+
+
 
     return (
         <main>
@@ -33,7 +58,13 @@ const CloudImage = () => {
                     setImageSelected(event.target.files[0])
                 }}></input>
                 <button onClick={uploadImage}>Upload Image</button>
-        
+                <AdvancedImage cldImg={myImage} />
+                {loggedIn && (
+                    <div>
+                    <ProductForm myImage={myImage} />
+                    </div>
+                )}
+
             </div>
             </div>
         </main>

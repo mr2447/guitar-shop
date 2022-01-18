@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS, QUERY_ME } from '../utils/queries';
 import ProductList from '../components/ProductList'
 import ProductForm from '../components/ProductForm'
+import Guitar from '../components/Store'
 
 import Auth from '../utils/auth'
 
@@ -20,7 +21,7 @@ const Home = () => {
           {loggedIn && userData? (
             <div>
               <p>{userData.username}{' '} can fill in the form when logged in.</p>
-              <ProductForm />
+              {/* <ProductForm /> */}
             </div>
           ): null}
           <div>
@@ -29,6 +30,7 @@ const Home = () => {
             ) : (
               <div>
                 <ProductList products={products} title="Available guitars: " />
+                <Guitar products={products}/>
               </div>
             )}
           </div>

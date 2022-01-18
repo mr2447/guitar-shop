@@ -25,22 +25,21 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PRODUCT = gql`
-mutation addProduct($brand: String!, $price: Int!, $condition: String!, $color: String){
-    addProduct(brand: $brand, price: $price, condition: $condition, color: $color) {
+mutation addProduct($brand: String!, $price: Int!, $condition: String!, $color: String, $publicID: String){
+    addProduct(brand: $brand, price: $price, condition: $condition, color: $color, publicID: $publicID) {
       _id
       username
+      createdAt
       brand
       condition
       price
       color
-      images {
-        _id
-      }
+      publicID
     }
   }`
 
 export const ADD_IMAGE = gql`
-mutation addImage($productId: ID!, $image: String!) {
+mutation addImage($productId: ID, $image: String) {
   addImage(productId: $productId, image: $image) {
     _id
     images {

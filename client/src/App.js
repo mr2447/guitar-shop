@@ -6,7 +6,7 @@ import React from 'react'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'
 import Home from './pages/Home'
-import EncodeBase64 from './components/Image'
+import EncodeBase64 from './components/ImageUpload'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
@@ -14,8 +14,7 @@ import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import SingleProduct from "./pages/SingleThought";
-import CloudImages from './components/CloudinaryImages'
-
+// import ImageGallery from "./components/ImageGallery"
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -54,7 +53,7 @@ function App() {
         </Switch>
       </div>
       <Main/>
-      <CloudImages/>
+     {/* <ImageGallery /> */}
       <About />
       <Footer />
 

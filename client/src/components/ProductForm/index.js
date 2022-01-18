@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import { useMutation } from '@apollo/client';
 import { ADD_PRODUCT } from '../../utils/mutations'
 import { QUERY_PRODUCTS, QUERY_ME } from '../../utils/queries';
-// import EncodeBase64 from '../Image'
+import CloudImage from '../ImageUpload'
 
-const ProductForm = () => {
+const ProductForm = ({myImage}) => {
   //ADD IMAGE SECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //({publicID: ""})
+  const [publicId, setPublicId] = useState({publicID: ""})
 
   //ADD PRODUCT SECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     const [formState, setFormState] = useState({ brand: '', price: '', condition: '', color: ''});
@@ -35,9 +37,10 @@ const ProductForm = () => {
     const handleChange = (e) => {
 
       setFormState({...formState, [e.target.name]: e.target.value})
-         
+      setPublicId(myImage.publicID)
+      console.log("publicId from productform: ", publicId)  
+      // console.log("type of publicId from productform: ", typeof publicId)  
     };
-    console.log("input: ", formState);
 
     //submit form
     const handleFormSubmit = async (event) => {
@@ -49,7 +52,8 @@ const ProductForm = () => {
               brand: formState.brand,
               price: parseInt(formState.price),
               condition: formState.condition,
-              color: formState.color
+              color: formState.color,
+              publicID: publicId
             }
           });
 
@@ -102,7 +106,6 @@ const ProductForm = () => {
             </form>
             {error && <div>Add Product failed</div>}
         </div>
-            
         </div>
         </main>
     )

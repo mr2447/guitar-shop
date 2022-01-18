@@ -1,6 +1,7 @@
 //import the gql tagged template function
 const { gql } = require('apollo-server-express');
 
+//deleted publicID: STRING from type Product ################
 //create our typeDefs
 const typeDefs = gql`
 
@@ -10,9 +11,9 @@ const typeDefs = gql`
         price: Int
         condition: String
         color: String
-        createdAt: String
         username: String
-        images: [Image]
+        createdAt: String
+        publicID: String
     }
 
     type Image {
@@ -44,8 +45,8 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addProduct(brand: String!, price: Int!, condition: String!, color: String, images: String): Product
-        addImage(productId: ID!, image: String): Product
+        addProduct(brand: String!, price: Int!, condition: String!, color: String, publicID: String): Product
+        addImage(productId: ID, image: String): Product
     }
 
 

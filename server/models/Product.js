@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const imageSchema = require('./Image')
+// const imageSchema = require('./Image')
 const dateFormat = require('../utils/dateFormat');
 
 const productSchema = new Schema(
@@ -23,11 +23,14 @@ const productSchema = new Schema(
     color: {
       type: String
     },
-    images: [imageSchema],
+    // images: [imageSchema],
     createdAt: {
       type: Date,
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
+    },
+    publicID: {
+      type: String
     },
     username: {
         type: String,
