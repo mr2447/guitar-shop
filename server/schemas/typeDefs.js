@@ -18,7 +18,7 @@ const typeDefs = gql`
         username: String
         createdAt: String
         publicID: String
-        category: Category
+     
     }
 
     type Image {
@@ -41,16 +41,17 @@ const typeDefs = gql`
 
     type Query {
         me: User
-        products(username: String, category: ID): [Product]
+        products(username: String): [Product]
         users: [User]
         user(username: String!) : User
+       
 
     }
 
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addProduct(brand: String!, price: Int!, condition: String!, color: String, publicID: String, category: ID): Product
+        addProduct(brand: String!, price: Int!, condition: String!, color: String, publicID: String): Product
         addImage(productId: ID, image: String): Product
     }
 

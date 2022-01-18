@@ -9,6 +9,8 @@ const ProductForm = ({myImage}) => {
   //({publicID: ""})
   const [publicId, setPublicId] = useState({publicID: ""})
 
+  //ADD CATEGORY SECTION
+  // const [category, setCategory] = useState({category: ""})
   //ADD PRODUCT SECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     const [formState, setFormState] = useState({ brand: '', price: '', condition: '', color: ''});
     const { brand, price, condition, color } = formState;
@@ -53,7 +55,8 @@ const ProductForm = ({myImage}) => {
               price: parseInt(formState.price),
               condition: formState.condition,
               color: formState.color,
-              publicID: publicId
+              publicID: publicId,
+              
             }
           });
 
@@ -100,6 +103,13 @@ const ProductForm = ({myImage}) => {
                 defaultValue={color}
                 onChange={handleChange}
                 ></input>
+                {/* <input
+                placeholder='category'
+                name='category'
+                type='category'
+                defaultValue={category}
+                onChange={handleChange}
+                ></input> */}
               <button type='submit'>
                 Submit
               </button>

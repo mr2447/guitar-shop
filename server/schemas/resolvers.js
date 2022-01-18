@@ -4,6 +4,9 @@ const { signToken } = require('../utils/auth')
 
 const resolvers = {
     Query: {
+        // categories: async () => {
+        //     return await Category.find();
+        //   },
         //me for logged In users
         me: async (parent, args, context) => {
             if(context.user) {
@@ -15,15 +18,28 @@ const resolvers = {
             throw new AuthenticationError('Not logged in')
         },
         //get all products
-        products: async (parent, { username }) => {
-            const params = username? { username } : {};
-            return Product.find(params).sort({createdAt: -1})
+        products: async (parent, { category, username }) => {
+            const params = username ? {username} : {};
+            // const params = {};
+            // if (category) {
+            //     params.category = category;
+            // }
+
+            // if(username) {
+            //     params.usernamme = {username}
+            // } else {
+            //     params = {}
+            // }
+            return await Product.find(params).sort({createdAt: -1})
+            // .populate('category')
         },
         // get all users
         users: async () => {
             return User.find()
             .select('-__v -password')
-            .populate('products')
+            .populate(
+                'products'
+            )
             .sort({createdAt: -1})
         },
         // get a user by username

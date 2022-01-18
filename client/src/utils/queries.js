@@ -10,9 +10,7 @@ query products($username: String) {
         username
         createdAt
         publicID
-        category {
-          _id
-        }
+    
     }
 }`
 
@@ -30,9 +28,7 @@ export const QUERY_USER = gql`
         color
         createdAt
         publicID
-        category {
-          _id
-        }
+      
       }
     }
   }
@@ -49,9 +45,7 @@ export const QUERY_PRODUCT= gql`
       color
       createdAt
       publicID
-      category {
-        _id
-      }
+ 
     }
   }
 `;
@@ -69,9 +63,7 @@ export const QUERY_ME = gql`
         price
         createdAt
         publicID
-        category {
-          _id
-        }
+
       }
     }
   }
@@ -90,3 +82,12 @@ export const QUERY_ME_BASIC = gql`
     }
   }
 `;
+
+// export const QUERY_CATEGORIES = gql`
+//   {
+//     categories {
+//       _id
+//       name
+//     }
+//   }
+// `;

@@ -1,19 +1,19 @@
 const faker = require('faker');
 
 const db = require('../config/connection');
-const { Product, User, Category} = require('../models');
+const { Product, User} = require('../models');
 
 db.once('open', async () => {
-  await Category.deleteMany();
+  // await Category.deleteMany();
   await Product.deleteMany({});
   await User.deleteMany({});
   
-  const categories = await Category.insertMany([
-    { name: 'Acoustic Guitars'},
-    { name: 'Electric Guitars'}
-  ])
+  // const categories = await Category.insertMany([
+  //   { name: 'Acoustic Guitars'},
+  //   { name: 'Electric Guitars'}
+  // ])
 
-  console.log('categories seeded')
+  // console.log('categories seeded')
   // create user data
   const userData = [];
 
@@ -53,11 +53,11 @@ const createdUsers = await User.collection.insertMany(userData);
     const condition = faker.lorem.words(Math.round(Math.random()) + 1);
     const color = faker.lorem.words(Math.round(Math.random()) + 1);
     const publicID = faker.lorem.words(Math.round(Math.random()) + 1);
-    const category = categories[0]._id
+    // const category = categories[0]._id
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-    const createdProduct = await Product.create({ brand, condition, price, color, username, publicID, category});
+    const createdProduct = await Product.create({ brand, condition, price, color, username, publicID});
 
     const updatedUser = await User.updateOne(
       { _id: userId },
