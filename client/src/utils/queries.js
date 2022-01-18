@@ -9,6 +9,12 @@ query products($username: String) {
         condition
         username
         createdAt
+        images {
+          _id
+          createdAt
+          username
+          image
+        }
     }
 }`
 
@@ -24,6 +30,12 @@ export const QUERY_USER = gql`
         createdAt
         price
         condition
+        images {
+          _id
+          createdAt
+          username
+          image
+        }
       }
     }
   }
@@ -38,6 +50,12 @@ export const QUERY_PRODUCT= gql`
       username
       condition
       price
+      images {
+        _id
+        createdAt
+        username
+        image
+      }
     }
   }
 `;
@@ -54,6 +72,12 @@ export const QUERY_ME = gql`
         createdAt
         condition
         price
+        images {
+          _id
+          createdAt
+          username
+          image
+        }
       }
     }
   }

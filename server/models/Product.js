@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const imageSchema = require('./Image')
 const dateFormat = require('../utils/dateFormat');
 
 const productSchema = new Schema(
@@ -22,6 +23,7 @@ const productSchema = new Schema(
     color: {
       type: String
     },
+    images: [imageSchema],
     createdAt: {
       type: Date,
       default: Date.now,
@@ -31,6 +33,12 @@ const productSchema = new Schema(
         type: String,
         required: true
     },
+    categories: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Category'
+      }
+    ],
 
   },
   {

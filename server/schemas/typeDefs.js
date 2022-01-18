@@ -12,6 +12,14 @@ const typeDefs = gql`
         color: String
         createdAt: String
         username: String
+        images: [Image]
+    }
+
+    type Image {
+        _id: ID
+        image: String
+        createdAt: String
+        username: String
     }
 
     type User {
@@ -36,7 +44,8 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addProduct(brand: String!, price: Int!, condition: String!, color: String): Product
+        addProduct(brand: String!, price: Int!, condition: String!, color: String, images: String): Product
+        addImage(productId: ID!, image: String): Product
     }
 
 

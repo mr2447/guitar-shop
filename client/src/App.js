@@ -14,6 +14,8 @@ import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import SingleProduct from "./pages/SingleThought";
+import CloudImages from './components/CloudinaryImages'
+
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -52,6 +54,7 @@ function App() {
         </Switch>
       </div>
       <Main/>
+      <CloudImages/>
       <About />
       <Footer />
 

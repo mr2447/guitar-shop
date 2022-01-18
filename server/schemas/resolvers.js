@@ -68,6 +68,18 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!')
+        },
+        addImage: async (parent, { productId, image}, context) => {
+            if (context.user) {
+                const updatedProduct = await Product.findOneAndUpdate(
+                    { _id: productId},
+                    {$push: { images: { image, username: context.user.username }}},
+                    { new: true, runValidators: true }
+                );
+
+                return updatedProduct;
+            }
+            throw new AuthenticationError('You need to be logged in!')
         }
     }
 }

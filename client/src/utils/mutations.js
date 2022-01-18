@@ -33,5 +33,21 @@ mutation addProduct($brand: String!, $price: Int!, $condition: String!, $color: 
       condition
       price
       color
+      images {
+        _id
+      }
     }
   }`
+
+export const ADD_IMAGE = gql`
+mutation addImage($productId: ID!, $image: String!) {
+  addImage(productId: $productId, image: $image) {
+    _id
+    images {
+      _id
+      image
+      createdAt
+      username
+    }
+  }
+}`

@@ -1,16 +1,30 @@
-const { Schema, model, Mongoose } = require('mongoose');
+const { Schema } = require('mongoose');
+const dateFormat = require('../utils/dateFormat')
 
-const imageSchema = new Schema({
-    name: String,
-    desc: String,
-    img: 
+const imageSchema = new Schema(
     {
-        data: Buffer,
-        contentType: String
+        image: {
+            type: String
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: timestamp => dateFormat(timestamp)
+        },
+        username: {
+            type: String,
+        }
+    },
+    {
+        toJSON: {
+            getters: true
+          }
     }
-});
+);
 
-//Image is a mofel which has a schema imageSchema
-const Image = model('Image', imageSchema)
 
-module.exports = Image
+// //Image is a model which has a schema imageSchema
+// const Image = model('Image', imageSchema)
+// module.exports = Image
+
+module.exports = imageSchema

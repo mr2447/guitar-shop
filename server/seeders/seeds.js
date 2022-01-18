@@ -36,6 +36,8 @@ const createdUsers = await User.collection.insertMany(userData);
   //   await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
   // }
 
+
+
   // create products
   let createdProducts = [];
   for (let i = 0; i < 2; i += 1) {
@@ -54,25 +56,28 @@ const createdUsers = await User.collection.insertMany(userData);
       { $push: { products: createdProduct._id } }
     );
       console.log(createdProduct)
+  
     createdProducts.push(createdProduct);
   }
 
-//   // create reactions
-//   for (let i = 0; i < 100; i += 1) {
-//     const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    // create images
+    for (let i = 0; i < 100; i += 1) {
+      const image = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+  
+      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+      const { username } = createdUsers.ops[randomUserIndex];
+  
+      const randomProductIndex = Math.floor(Math.random() * createdProducts.length);
+      const { _id: productId } = createdProducts[randomProductIndex];
+  
+      await Product.updateOne(
+        { _id: productId },
+        { $push: { images: { image, username } } },
+        { runValidators: true }
+      );
+    }
 
-//     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-//     const { username } = createdUsers.ops[randomUserIndex];
-
-//     const randomThoughtIndex = Math.floor(Math.random() * createdThoughts.length);
-//     const { _id: thoughtId } = createdThoughts[randomThoughtIndex];
-
-//     await Thought.updateOne(
-//       { _id: thoughtId },
-//       { $push: { reactions: { reactionBody, username } } },
-//       { runValidators: true }
-//     );
-//   }
+  
 
   console.log('all done!');
   process.exit(0);
