@@ -4,6 +4,10 @@ const { gql } = require('apollo-server-express');
 //deleted publicID: STRING from type Product ################
 //create our typeDefs
 const typeDefs = gql`
+    type Category {
+        _id: ID
+        name: String
+    }
 
     type Product {
         _id: ID
@@ -14,6 +18,7 @@ const typeDefs = gql`
         username: String
         createdAt: String
         publicID: String
+        category: Category
     }
 
     type Image {
@@ -36,7 +41,7 @@ const typeDefs = gql`
 
     type Query {
         me: User
-        products(username: String): [Product]
+        products(username: String, category: ID): [Product]
         users: [User]
         user(username: String!) : User
 
@@ -45,7 +50,7 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addProduct(brand: String!, price: Int!, condition: String!, color: String, publicID: String): Product
+        addProduct(brand: String!, price: Int!, condition: String!, color: String, publicID: String, category: ID): Product
         addImage(productId: ID, image: String): Product
     }
 

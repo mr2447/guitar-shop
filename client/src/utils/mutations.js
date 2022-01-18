@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PRODUCT = gql`
-mutation addProduct($brand: String!, $price: Int!, $condition: String!, $color: String, $publicID: String){
-    addProduct(brand: $brand, price: $price, condition: $condition, color: $color, publicID: $publicID) {
+mutation addProduct($brand: String!, $price: Int!, $condition: String!, $color: String, $publicID: String, $category: ID){
+    addProduct(brand: $brand, price: $price, condition: $condition, color: $color, publicID: $publicID, category: $category) {
       _id
       username
       createdAt
@@ -35,6 +35,7 @@ mutation addProduct($brand: String!, $price: Int!, $condition: String!, $color: 
       price
       color
       publicID
+      category
     }
   }`
 
