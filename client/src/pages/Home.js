@@ -2,7 +2,8 @@ import React from 'react'
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS, QUERY_ME } from '../utils/queries';
 import ProductList from '../components/ProductList'
-import ProductForm from '../components/ProductForm'
+import './style.css'
+
 // import Guitar from '../components/Store'
 
 import Auth from '../utils/auth'
@@ -19,9 +20,26 @@ const Home = () => {
       <main>
         <div>
           {loggedIn && userData? (
-            <div>
-              <p>{userData.username}{' '} can fill in the form when logged in.</p>
-              {/* <ProductForm /> */}
+            <div className="filter_bar">
+              <select>
+                  <option value="grapefruit">Grapefruit</option>
+                  <option value="lime">Lime</option>
+                  <option selected value="coconut">Coconut</option>
+                  <option value="mango">Mango</option>
+               </select>
+               <select>
+                  <option value="grapefruit">Grapefruit</option>
+                  <option value="lime">Lime</option>
+                  <option selected value="coconut">Coconut</option>
+                  <option value="mango">Mango</option>
+               </select>
+               <select>
+                  <option value="grapefruit">Grapefruit</option>
+                  <option value="lime">Lime</option>
+                  <option selected value="coconut">Coconut</option>
+                  <option value="mango">Mango</option>
+               </select>
+            
             </div>
           ): null}
           <div>

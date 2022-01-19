@@ -11,9 +11,7 @@ function Header(){
       <section>
           <div className='nav'>
               <div className='t_brand'>
-                  <Link to="/">
                     <h1>Guitar Shop</h1>
-                  </Link>
               </div>
               <div className='navigate'>
                   <ul>
@@ -21,17 +19,21 @@ function Header(){
                       <li>About</li>
                       <li>Contact</li>
                       {Auth.loggedIn() ? (
-                          <>
-                          <Link to="/profile">Me</Link>
-                          <a href="/" onClick={logout}>
-                              Logout
-                          </a>
-                          </>
+                          
+                          
+                          
+                          <li> <Link className='divide' to="/" onClick={logout}>
+                              Logout</Link>
+                              <Link className='divide' to="/profile">Me</Link>
+                          </li>
+                          
                       ) : (
-                          <>
-                                <Link to="/login">Login</Link>
-                                <Link to="/signup">Signup</Link>
-                          </>
+                          <li>
+                         <Link className='divide' to="/login">Login</Link>
+                          
+                          <Link className='divide' to="/signup">Signup</Link>
+                         </li>
+                          
                       )}
                     </ul>
               </div>

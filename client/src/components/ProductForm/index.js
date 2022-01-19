@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useMutation } from '@apollo/client';
 import { ADD_PRODUCT } from '../../utils/mutations'
 import { QUERY_PRODUCTS, QUERY_ME } from '../../utils/queries';
-import CloudImage from '../ImageUpload'
+import ImageUpload from '../ImageUpload'
 
 const ProductForm = ({myImage}) => {
   //ADD IMAGE SECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

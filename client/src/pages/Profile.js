@@ -7,6 +7,7 @@ import { QUERY_USER} from '../utils/queries';
 import Auth from '../utils/auth';
 import { Redirect, userParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client'
+import ImageUpload from '../components/ImageUpload';
 // import ThoughtForm from '../components/ThoughtForm';
 
 const Profile = () => {
@@ -30,7 +31,7 @@ const Profile = () => {
   if(!user?.username) {
     return (
       <h4>
-        You need to be logged in to see this page. Use the navigation links above to sign up or log in!
+        You need to be logged in to see this page. Use the navigation links above to sign up or log in!<ImageUpload/>
       </h4>
     )
   }

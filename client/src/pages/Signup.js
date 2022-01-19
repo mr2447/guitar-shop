@@ -37,12 +37,24 @@ const Signup = () => {
   
 
   return (
-    <main >
+    <main className='login_cont' >
+      <div className='login_img'>
+          <img 
+          src={`${process.env.PUBLIC_URL}/img/aboutImg2.jpeg`} 
+          alt='cover'
+          width={'500px'}/>
+    
+        </div>
       <div>
-        <div>
-          <h4>Sign Up</h4>
+        
+        <div className='login_title'>
+            <h4 >Sign Up</h4>
+          </div>
           <div>
-            <form onSubmit={handleFormSubmit}>
+            <form 
+            className='login_form'
+            onSubmit={handleFormSubmit}>
+               <label htmlFor='username'>Username</label>
               <input
                 className='form-input'
                 placeholder='Your username'
@@ -52,6 +64,7 @@ const Signup = () => {
                 value={formState.username}
                 onChange={handleChange}
               />
+               <label htmlFor='email'>Email</label>
               <input
                 className='form-input'
                 placeholder='Your email'
@@ -61,6 +74,7 @@ const Signup = () => {
                 value={formState.email}
                 onChange={handleChange}
               />
+               <label htmlFor='password'>Password</label>
               <input
                 className='form-input'
                 placeholder='******'
@@ -70,14 +84,13 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button type='submit'>
+              <button className='btn_login' type='submit'>
                 Submit
               </button>
             </form>
             {error && <div>Sign up failed</div>}
           </div>
         </div>
-      </div>
     </main>
   );
 };

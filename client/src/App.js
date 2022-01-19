@@ -14,7 +14,10 @@ import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import SingleProduct from "./pages/SingleThought";
+import ImageUpload from "./components/ImageUpload";
+import ProductForm from "./components/ProductForm";
 // import ImageGallery from "./components/ImageGallery"
+
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -48,15 +51,10 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/profile/:username?" component={Profile} />
           <Route exact path="/product/:id" component={SingleProduct} />
-
           <Route component={NoMatch} />
         </Switch>
       </div>
-      <Main/>
-     {/* <ImageGallery /> */}
-      <About />
       <Footer />
-
       </div>
       </Router>
     </ApolloProvider>

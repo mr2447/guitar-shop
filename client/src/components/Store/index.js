@@ -1,4 +1,5 @@
 import React, { useState }from 'react'
+import './style.css';
 import {AdvancedImage} from '@cloudinary/react';
 import {Cloudinary} from "@cloudinary/url-gen";
 import {fill} from "@cloudinary/url-gen/actions/resize";
@@ -17,9 +18,8 @@ function Guitar(product){
   guitarImage.resize(fill().width(250).height(250));
 
   return(
-      <div>
+      <div className='guitar_card'>
         <AdvancedImage cldImg={guitarImage} />
-        this is guitar persistent image from Guitar Store
       </div>
   );
 
