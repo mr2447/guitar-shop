@@ -22,21 +22,22 @@ const Home = () => {
           {loggedIn && userData? (
             <div className="filter_bar">
               <select>
+                  <option selected  value="">Brands</option>
                   <option value="grapefruit">Grapefruit</option>
                   <option value="lime">Lime</option>
-                  <option selected value="coconut">Coconut</option>
+                  <option value="coconut">Coconut</option>
                   <option value="mango">Mango</option>
                </select>
                <select>
-                  <option value="grapefruit">Grapefruit</option>
+                  <option selected value="grapefruit">Condition</option>
                   <option value="lime">Lime</option>
-                  <option selected value="coconut">Coconut</option>
+                  <option  value="coconut">Coconut</option>
                   <option value="mango">Mango</option>
                </select>
                <select>
-                  <option value="grapefruit">Grapefruit</option>
+                  <option selected value="grapefruit">Prices</option>
                   <option value="lime">Lime</option>
-                  <option selected value="coconut">Coconut</option>
+                  <option  value="coconut">Coconut</option>
                   <option value="mango">Mango</option>
                </select>
             
