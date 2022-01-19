@@ -12,12 +12,9 @@ db.once('open', async () => {
   //   { name: 'Acoustic Guitars'},
   //   { name: 'Electric Guitars'}
   // ])
-
-  // console.log('categories seeded')
-  // create user data
   const userData = [];
 
-  for (let i = 0; i < 2; i += 1) {
+  for (let i = 0; i < 1; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = faker.internet.password();
@@ -26,6 +23,20 @@ db.once('open', async () => {
   }
 
 const createdUsers = await User.collection.insertMany(userData);
+
+  // console.log('categories seeded')
+  // create user data
+//   const userData = [];
+
+//   for (let i = 0; i < 2; i += 1) {
+//     const username = faker.internet.userName();
+//     const email = faker.internet.email(username);
+//     const password = faker.internet.password();
+//     // console.log({ username, email, password })
+//     userData.push({ username, email, password });
+//   }
+
+// const createdUsers = await User.collection.insertMany(userData);
 
 
   // // create friends
@@ -52,7 +63,7 @@ const createdUsers = await User.collection.insertMany(userData);
     const price = faker.random.number({'min': 10, 'max': 100000});
     const condition = faker.lorem.words(Math.round(Math.random()) + 1);
     const color = faker.lorem.words(Math.round(Math.random()) + 1);
-    const publicID = "v1642421698/seedimage"
+    const publicID = "v1642417218/sample"
     
     // const category = categories[0]._id
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
@@ -70,21 +81,21 @@ const createdUsers = await User.collection.insertMany(userData);
   }
 
     // create images
-    for (let i = 0; i < 100; i += 1) {
-      const image = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    // for (let i = 0; i < 100; i += 1) {
+    //   const image = faker.lorem.words(Math.round(Math.random() * 20) + 1);
   
-      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      const { username } = createdUsers.ops[randomUserIndex];
+    //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+    //   const { username } = createdUsers.ops[randomUserIndex];
   
-      const randomProductIndex = Math.floor(Math.random() * createdProducts.length);
-      const { _id: productId } = createdProducts[randomProductIndex];
+    //   const randomProductIndex = Math.floor(Math.random() * createdProducts.length);
+    //   const { _id: productId } = createdProducts[randomProductIndex];
   
-      await Product.updateOne(
-        { _id: productId },
-        { $push: { images: { image, username } } },
-        { runValidators: true }
-      );
-    }
+    //   await Product.updateOne(
+    //     { _id: productId },
+    //     { $push: { images: { image, username } } },
+    //     { runValidators: true }
+    //   );
+    // }
 
   
 

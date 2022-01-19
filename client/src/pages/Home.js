@@ -4,7 +4,7 @@ import { QUERY_PRODUCTS, QUERY_ME } from '../utils/queries';
 import ProductList from '../components/ProductList'
 import ProductForm from '../components/ProductForm'
 // import Guitar from '../components/Store'
-
+import Filter from './Filter'
 import Auth from '../utils/auth'
 
 const Home = () => {
@@ -31,7 +31,10 @@ const Home = () => {
               <div>
                 <ProductList products={products} title="Available guitars: " />
                 {/* <Guitar products={products}/> */}
+                THis is filter: 
+                <Filter products={products}/>
               </div>
+             
             )}
           </div>
         </div>
