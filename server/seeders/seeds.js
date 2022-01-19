@@ -8,10 +8,6 @@ db.once('open', async () => {
   await Product.deleteMany({});
   await User.deleteMany({});
   
-  // const categories = await Category.insertMany([
-  //   { name: 'Acoustic Guitars'},
-  //   { name: 'Electric Guitars'}
-  // ])
   const userData = [];
 
   for (let i = 0; i < 1; i += 1) {
@@ -23,38 +19,6 @@ db.once('open', async () => {
   }
 
 const createdUsers = await User.collection.insertMany(userData);
-
-  // console.log('categories seeded')
-  // create user data
-//   const userData = [];
-
-//   for (let i = 0; i < 2; i += 1) {
-//     const username = faker.internet.userName();
-//     const email = faker.internet.email(username);
-//     const password = faker.internet.password();
-//     // console.log({ username, email, password })
-//     userData.push({ username, email, password });
-//   }
-
-// const createdUsers = await User.collection.insertMany(userData);
-
-
-  // // create friends
-  // for (let i = 0; i < 100; i += 1) {
-  //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-  //   const { _id: userId } = createdUsers.ops[randomUserIndex];
-
-  //   let friendId = userId;
-
-  //   while (friendId === userId) {
-  //     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-  //     friendId = createdUsers.ops[randomUserIndex];
-  //   }
-
-  //   await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
-  // }
-
-
 
   // create products
   let createdProducts = [];
@@ -79,23 +43,6 @@ const createdUsers = await User.collection.insertMany(userData);
   
     createdProducts.push(createdProduct);
   }
-
-    // create images
-    // for (let i = 0; i < 100; i += 1) {
-    //   const image = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-  
-    //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    //   const { username } = createdUsers.ops[randomUserIndex];
-  
-    //   const randomProductIndex = Math.floor(Math.random() * createdProducts.length);
-    //   const { _id: productId } = createdProducts[randomProductIndex];
-  
-    //   await Product.updateOne(
-    //     { _id: productId },
-    //     { $push: { images: { image, username } } },
-    //     { runValidators: true }
-    //   );
-    // }
 
   
 

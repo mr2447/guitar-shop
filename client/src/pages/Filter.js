@@ -19,9 +19,9 @@ const [filterData, setFilterData] = useState([])
 
 const handleFilterData = async (e) => {
     // await console.log("data from react select: ", typeof data.value)
-     if(await e.value === "fender") {
+     if(await e.value === products.products.brand) {
         var filteredData = products.products.filter((data)=> {
-        return data.brand === "fender"
+        return data.brand === products.products.brand
         })
     }
 
@@ -74,5 +74,5 @@ const handleFilterData = async (e) => {
     )
 }
 
-export default Filter; 
+// export default Filter; 
   
