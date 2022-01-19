@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import EncodeBase64 from '../Image'
 import CloudImage from '../ImageUpload'
+import Guitar from '../Store'
 
 const ProductList = ({ products, title }) => {
   if (!products.length) {
@@ -22,6 +23,7 @@ const ProductList = ({ products, title }) => {
              <p>Uploaded on{' '}{product.createdAt}</p>
              <br/>
              <CloudImage />
+             <Guitar product={product}/>
             </div>
           </div>
         ))}
