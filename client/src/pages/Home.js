@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS, QUERY_ME } from '../utils/queries';
 import ProductList from '../components/ProductList'
 import ProductForm from '../components/ProductForm'
-import Guitar from '../components/Store'
+// import Guitar from '../components/Store'
 
 import Auth from '../utils/auth'
 
@@ -30,7 +30,7 @@ const Home = () => {
             ) : (
               <div>
                 <ProductList products={products} title="Available guitars: " />
-                <Guitar products={products}/>
+                {/* <Guitar products={products}/> */}
               </div>
             )}
           </div>
