@@ -31,7 +31,7 @@ const Home = () => {
                <select>
                   <option selected value="grapefruit">Condition</option>
                   <option value="lime">Lime</option>
-                  <option  value="coconut">Coconut</option>
+                  <option  value="coconunt">Coconut</option>
                   <option value="mango">Mango</option>
                </select>
                <select>
