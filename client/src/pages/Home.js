@@ -10,6 +10,7 @@ import Auth from '../utils/auth'
 import Basket from './Basket';
 import HeaderBasket from './HeaderBasket'
 import MainBasket from './MainBasket';
+import Search from './Search'
 
 
 const Home = () => {
@@ -23,7 +24,7 @@ const Home = () => {
     const {data: userData} = useQuery(QUERY_ME)
     const [allProducts, setAllProducts] = useState(products)
      
-    //SHOPPING CART
+    //SHOPPING CART~~~~~~~~~~~
     const [cartItems, setCartItems] = useState([]);
     const onAdd = (product) => {
       //ITS IS PRODUCT._ID!!!
@@ -103,6 +104,9 @@ const Home = () => {
                 {allProducts.map((item)=> (
                   <ProductItem item={item} key={item._id}/>    
                 ))}  
+                </div>
+                <div>
+                  <Search products={products}/>
                 </div>
                 
               </div>
