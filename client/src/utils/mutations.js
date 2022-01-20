@@ -51,3 +51,10 @@ mutation addImage($productId: ID, $image: String) {
     }
   }
 }`
+
+export const DELETE_PRODUCT = gql`
+mutation deleteProduct($productId: ID) {
+  deleteProduct(productId: $productId) {
+    _id
+  }
+}`

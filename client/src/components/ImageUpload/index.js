@@ -1,5 +1,6 @@
 // METHOD #3 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 import React, { useState } from 'react';
+import './style.css';
 import Axios from 'axios';
 
 // import CloudImages from '../CloudinaryImages';
@@ -9,7 +10,7 @@ import {fill} from "@cloudinary/url-gen/actions/resize";
 import Auth from '../../utils/auth'
 import ProductForm from "../ProductForm"
 
-const CloudImage = () => {
+const ImageUpload = () => {
 
     //UPLOAD IMAGE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     const [imageList, setImageList] = useState([]);
@@ -47,31 +48,37 @@ const CloudImage = () => {
 
 
     return (
-        <main>
+        <main> 
+            
             
             <div>
+                 <h3>Upload Guitar</h3>
                 {imageList.map((image) => (
                     <img src={image.url} alt={image.public_id} />
                 ))}
-            <div>
-                <input type="file" onChange={(event)=> {
+               <div>
+                <input className='btn' type="file" onChange={(event)=> {
                     setImageSelected(event.target.files[0])
                 }}></input>
-                <button onClick={uploadImage}>Upload Image</button>
+                <button  onClick={uploadImage}>Upload Image</button>
                 <AdvancedImage cldImg={myImage} />
+                <div>
                 {loggedIn && (
-                    <div>
-                    <ProductForm myImage={myImage} />
-                    </div>
-                )}
+                        <div>
+                        <ProductForm myImage={myImage}/>
+                        </div>
+                    )}
+                </div>
 
             </div>
             </div>
+            
         </main>
+        
     )
 }
 
-export default CloudImage
+export default ImageUpload;
 // //METHOD 2 USING CLOUDINARY AND AXIOS POST ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // import React, { useState } from 'react'
 // import Axios from 'axios'

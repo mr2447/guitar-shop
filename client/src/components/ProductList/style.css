@@ -1,0 +1,61 @@
+.guitarCard{
+    border: 0.4px solid lightgray;
+    width: 340px;
+    margin: 35px;
+    border-radius: 5px;
+    box-shadow: .24px .2px 19px 8px lightgray;
+}
+.guitarCard2{
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    margin-bottom: 9em;
+}
+
+.itemEl{
+    display: flex;
+    justify-content: space-around; 
+    
+}
+.itemEl p{
+    width: 95px;
+    font-size: 20px;
+    color:  rgb(240, 10, 10);
+    font-weight: 490;
+    padding: .6em;
+    padding-right: .8em;
+    
+
+   
+}
+
+.itemEl button{
+    border: 2px solid #3253b8;
+    font-size: 20px;
+    padding: .5em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
+    font-weight: 150;
+    color: whitesmoke;
+    background-color: #3253b8;
+    margin-top: 20px;
+    box-shadow: .4px .5px 4px 2px lightgray;
+    
+
+}
+.itemEl button:hover{
+    box-shadow: .3px 3px 6px 3px lightgray;
+}
+
+.filter_box{
+    position: absolute;
+    top:8em;
+    left:15px
+}
+.filter_box input{
+    font-size: 20px;
+    padding: .2em;
+    outline: none;
+}
+

@@ -40,12 +40,24 @@ const Login = (props) => {
   };
 
   return (
-    <main>
+    <main className='login_cont'>
+       <div className='login_img'>
+          <img 
+          src={`${process.env.PUBLIC_URL}/img/aboutImg2.jpeg`} 
+          alt='cover'
+          width={'500px'}/>
+    
+        </div>
       <div>
-        <div>
-          <h4 >Login</h4>
-          <div >
-            <form onSubmit={handleFormSubmit}>
+          <div className='login_title'>
+            <h4 >Login</h4>
+          </div>
+          <div>
+            <form 
+             onSubmit={handleFormSubmit}
+             className='login_form'
+             >
+               <label htmlFor='email'>Email</label>
               <input
                 className='form-input'
                 placeholder='Your email'
@@ -55,6 +67,7 @@ const Login = (props) => {
                 value={formState.email}
                 onChange={handleChange}
               />
+               <label htmlFor='email'>Password</label>
               <input
                 className='form-input'
                 placeholder='******'
@@ -64,14 +77,15 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button type='submit'>
-                Submit
+
+              <button className='btn_login' type='submit'>
+                Login
               </button>
             </form>
+
             {error && <div>Login failed</div>}
           </div>
         </div>
-      </div>
     </main>
   );
 };

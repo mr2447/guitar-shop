@@ -1,9 +1,10 @@
 .container{
     display: flex;
     background-color: #000000;
+    padding-bottom: 120px;
 }
 .hero_img img{
-    width: 600px;
+    width: 500px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -11,10 +12,25 @@
 }
 .hero_txt{
     text-align: center;
-    font-size: 4vw;
-    margin-top: 2em;
+    width: 75%;
+    font-size: 6vh;
+    margin-top: 3em;
     padding-left: 30px;
-    font-weight: 200;
-    color: whitesmoke;
-    text-shadow: .3px .3px 6px lightgray;
+    font-weight: 180;
+    color: rgb(213, 209, 209);
+    text-shadow: .3px .3px 7px lightgray;
+}
+.main_btn{
+    text-decoration: none;
+    font-size: 25px;
+    color:rgb(213, 209, 209);
+    border: 2px solid rgb(213, 209, 209);
+    padding: .4em;
+    position: absolute;
+    left: 370px;
+    bottom: 260px;
+    
+}
+.main_btn:hover{
+    box-shadow: .3px .3px 19px .5px rgb(244, 215, 215) ;
 }

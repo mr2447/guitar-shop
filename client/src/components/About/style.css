@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: row-reverse;
     padding-top: 40px;
-    background-color: whitesmoke;
+    background-color: #f0ebd8;
  
 }
 .contain2{
     display: flex;
     padding-top: 20px;
-    background-color: whitesmoke;
+    padding-bottom: 4.3em;
+    background-color: #f0ebd8;
  
 }
 .about_img img{
@@ -26,7 +27,7 @@
 .about_txt{
     text-align: left;
     margin-left: 25px;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 200;
     letter-spacing: 2px;
     margin: 30px;

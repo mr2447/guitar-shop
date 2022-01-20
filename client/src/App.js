@@ -6,7 +6,6 @@ import React from 'react'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'
 import Home from './pages/Home'
-import EncodeBase64 from './components/ImageUpload'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
@@ -14,7 +13,12 @@ import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import SingleProduct from "./pages/SingleThought";
+import CartContainer from "./pages/CartContainer";
+import Contact from "./components/Contact"
+
+
 // import ImageGallery from "./components/ImageGallery"
+
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -36,27 +40,27 @@ const client = new ApolloClient({
 })
 
 function App() {
+  
   return (
     <ApolloProvider client={client}>
       <Router>
       <div className="App">
       <Header />
+      
       <div>
         <Switch>
-          <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Main}/>
+          <Route exact path="/about" component={About}/>
+          <Route exact path="/shop" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/profile/:username?" component={Profile} />
           <Route exact path="/product/:id" component={SingleProduct} />
-
+          <Route exact path="/Contact" component={Contact} />
           <Route component={NoMatch} />
         </Switch>
       </div>
-      <Main/>
-     {/* <ImageGallery /> */}
-      <About />
       <Footer />
-
       </div>
       </Router>
     </ApolloProvider>

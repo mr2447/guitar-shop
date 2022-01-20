@@ -11,27 +11,29 @@ function Header(){
       <section>
           <div className='nav'>
               <div className='t_brand'>
-                  <Link to="/">
-                    <h1>Guitar Shop</h1>
-                  </Link>
+                    <h1><Link className='clear logo' to="/">Guitar Shop</Link></h1>
               </div>
               <div className='navigate'>
                   <ul>
-                      <li>Shop</li>
-                      <li>About</li>
-                      <li>Contact</li>
+                      <li><Link className='clear'  to="/shop">Shop</Link></li>
+                      <li><Link className='clear' to="/about">About</Link></li>
+                      <li><Link className='clear' to="/contact">Contact</Link></li>
                       {Auth.loggedIn() ? (
-                          <>
-                          <Link to="/profile">Me</Link>
-                          <a href="/" onClick={logout}>
-                              Logout
-                          </a>
-                          </>
+                          
+                          
+                          
+                          <li> <Link className='divide' to="/" onClick={logout}>
+                              Logout</Link>
+                              <Link className='divide' to="/profile">Me</Link>
+                          </li>
+                          
                       ) : (
-                          <>
-                                <Link to="/login">Login</Link>
-                                <Link to="/signup">Signup</Link>
-                          </>
+                          <li>
+                         <Link className='divide' to="/login">Login</Link>
+                          
+                          <Link className='divide' to="/signup">Signup</Link>
+                         </li>
+                          
                       )}
                     </ul>
               </div>
