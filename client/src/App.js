@@ -6,7 +6,6 @@ import React from 'react'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'
 import Home from './pages/Home'
-import EncodeBase64 from './components/ImageUpload'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
@@ -14,8 +13,9 @@ import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import SingleProduct from "./pages/SingleThought";
-import ImageUpload from "./components/ImageUpload";
-import ProductForm from "./components/ProductForm";
+import CartContainer from "./pages/CartContainer";
+
+
 // import ImageGallery from "./components/ImageGallery"
 
 
@@ -39,11 +39,13 @@ const client = new ApolloClient({
 })
 
 function App() {
+  
   return (
     <ApolloProvider client={client}>
       <Router>
       <div className="App">
       <Header />
+      
       <div>
         <Switch>
         <Route exact path="/" component={Main}/>

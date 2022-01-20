@@ -184,6 +184,11 @@ db.once('open', async () => {
     const username = "mike123";
     const email = "mike@getMaxListeners.com";
     const password = "password123";
+    // const orders = [
+    //   {
+    //     Product:[Product[0]._id]
+    //   }
+    // ]
     // console.log({ username, email, password })
     userData.push({ username, email, password });
   }

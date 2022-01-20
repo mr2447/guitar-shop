@@ -52,14 +52,15 @@ const ImageUpload = () => {
             
             
             <div>
+                 <h3>Upload Guitar</h3>
                 {imageList.map((image) => (
                     <img src={image.url} alt={image.public_id} />
                 ))}
                <div>
-                <input type="file" onChange={(event)=> {
+                <input className='btn' type="file" onChange={(event)=> {
                     setImageSelected(event.target.files[0])
                 }}></input>
-                <button onClick={uploadImage}>Upload Image</button>
+                <button  onClick={uploadImage}>Upload Image</button>
                 <AdvancedImage cldImg={myImage} />
                 <div>
                 {loggedIn && (

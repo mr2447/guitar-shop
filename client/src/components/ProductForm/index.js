@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useMutation } from '@apollo/client';
 import { ADD_PRODUCT } from '../../utils/mutations'
 import { QUERY_PRODUCTS, QUERY_ME } from '../../utils/queries';
-import ImageUpload from '../ImageUpload'
+import ImageUpload from '../ImageUpload';
+import './style.css'
 
 const ProductForm = ({myImage}) => {
   //ADD IMAGE SECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -74,22 +75,28 @@ const ProductForm = ({myImage}) => {
         <main>
         <div>
         <div>
-            <form onSubmit={handleFormSubmit}>
+            <form className='input-form' onSubmit={handleFormSubmit}>
+              <div className='row'>
               <input
+                className='input-box'
                 placeholder='Brand'
                 name='brand'
                 type='text'
                 defaultValue={brand}
                 onChange={handleChange}
               ></input>
-              <input              
+              <input 
+                className='input-box'             
                 placeholder='price'
                 name='price'
                 type='price'
                 defaultValue= {price}
                 onChange={handleChange}
               ></input>
+              </div>
+              <div className='row'>
                 <input
+                className='input-box'
                 placeholder='condition'
                 name='condition'
                 type='condition'
@@ -97,19 +104,15 @@ const ProductForm = ({myImage}) => {
                 onChange={handleChange}
                 ></input>
                 <input
+                className='color-input'
                 placeholder='Optional: color'
                 name='color'
                 type='color'
                 defaultValue={color}
                 onChange={handleChange}
                 ></input>
-                {/* <input
-                placeholder='category'
-                name='category'
-                type='category'
-                defaultValue={category}
-                onChange={handleChange}
-                ></input> */}
+                </div>
+                
               <button type='submit'>
                 Submit
               </button>

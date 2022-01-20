@@ -1,12 +1,16 @@
 .footer{
+    position:fixed;
+    bottom: 0px;
+    width: 97%;
     display: flex;
     justify-content: space-between;
-    padding: 20px 20px 27px 20px;
-    background-color: rgb(249, 219, 163);
+    padding: 20px 20px 10px 20px;
+    background-color: #cdab67;
 }
 .footer p{
     font-size: 13px;
     font-style: italic;
+    color: whitesmoke;
 }
 .find_us{
     display: flex;
@@ -14,4 +18,5 @@
 }
 .find_us li{
     margin: 0 10px 0 10px;
+    color: whitesmoke;
 }

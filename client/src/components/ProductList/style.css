@@ -1,7 +1,7 @@
 .guitarCard{
     border: 0.4px solid lightgray;
     width: 340px;
-    margin: 15px;
+    margin: 35px;
     border-radius: 5px;
     box-shadow: .24px .2px 19px 8px lightgray;
 }
@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     flex-flow: wrap;
+    margin-bottom: 9em;
 }
 
 .itemEl{
@@ -44,7 +45,17 @@
 
 }
 .itemEl button:hover{
-    color: rgb(247, 124, 124);
-    border: 3px solid rgb(247, 124, 124);
+    box-shadow: .3px 3px 6px 3px lightgray;
+}
+
+.filter_box{
+    position: absolute;
+    top:8em;
+    left:15px
+}
+.filter_box input{
+    font-size: 20px;
+    padding: .2em;
+    outline: none;
 }
 

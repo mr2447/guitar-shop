@@ -30,28 +30,23 @@ const Profile = () => {
   }
   if(!user?.username) {
     return (
-      <h4>
-        You need to be logged in to see this page. Use the navigation links above to sign up or log in!<ImageUpload/>
-      </h4>
+      <section className='profile_sec'> 
+      
+       <div className='upload_img'>
+         <img 
+         src={`${process.env.PUBLIC_URL}/img/about_img3.jpeg`}
+         alt='Cover'/>
+       </div>
+          
+         <ImageUpload/>
+         </section>
+       
+      
     )
   }
 
-  return ( 
-    <div>
-      <div>
-        <h2>
-          Viewing {userParam ? `${user.username}'s`: 'your'} profile.
-        </h2>
-      </div>
-
-      <div>
-        <div>
-          <ProductList thoughts={user.products} title={`${user.username}'s thoughts...`} />
-        </div>
-      </div>
-      {/* <div className="mb-3">{!userParam && <ThoughtForm />}</div> */}
-    </div>
-  )
+  
+  
 }
 
 export default Profile;
