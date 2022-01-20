@@ -28,7 +28,8 @@
     padding: .4em;
     position: absolute;
     left: 370px;
-    bottom: 280px;
+    bottom: 260px;
+    
 }
 .main_btn:hover{
     box-shadow: .3px .3px 19px .5px rgb(244, 215, 215) ;

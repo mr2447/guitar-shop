@@ -34,7 +34,8 @@
 }
 
 .login_img img{
- border-bottom-right-radius: 70px ;
+ border-bottom-right-radius: 70px;
+ width: 535px;
 }
 .login_title h4{
   text-align: center;

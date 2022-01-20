@@ -17,7 +17,7 @@ function Header(){
                   <ul>
                       <li><Link className='clear'  to="/shop">Shop</Link></li>
                       <li><Link className='clear' to="/about">About</Link></li>
-                      <li>Contact</li>
+                      <li><Link className='clear' to="/contact">Contact</Link></li>
                       {Auth.loggedIn() ? (
                           
                           

@@ -14,6 +14,7 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import SingleProduct from "./pages/SingleThought";
 import CartContainer from "./pages/CartContainer";
+import Contact from "./components/Contact"
 
 
 // import ImageGallery from "./components/ImageGallery"
@@ -55,6 +56,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/profile/:username?" component={Profile} />
           <Route exact path="/product/:id" component={SingleProduct} />
+          <Route exact path="/Contact" component={Contact} />
           <Route component={NoMatch} />
         </Switch>
       </div>
