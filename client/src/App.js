@@ -14,6 +14,10 @@ import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import SingleProduct from "./pages/SingleThought";
+//NEW BASKET 
+import HeaderBasket from './pages/HeaderBasket'
+import Basket from './pages/Basket'
+import MainBasket from './pages/MainBasket'
 // import ImageGallery from "./components/ImageGallery"
 
 const httpLink = createHttpLink({
@@ -41,6 +45,8 @@ function App() {
       <Router>
       <div className="App">
       <Header />
+     
+
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
