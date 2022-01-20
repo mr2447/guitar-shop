@@ -44,3 +44,35 @@
   font-weight: 190;
 }
 
+.filter_bar{
+   margin-bottom: 40px;
+    background-color: lightgray;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter_bar select{
+    padding: .4em;
+    font-size: 20px;
+    border: none;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-top:.5px solid black;
+    border-bottom:.5px solid black; 
+    outline: none;
+}
+.filter_bar select:hover{
+    background-color: wheat;
+}
+.filter_bar .cart{
+    background-color: whitesmoke;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+.filter_bar .cart:hover{
+    background-color: wheat;
+}

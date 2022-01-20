@@ -11,12 +11,12 @@ function Header(){
       <section>
           <div className='nav'>
               <div className='t_brand'>
-                    <h1>Guitar Shop</h1>
+                    <h1><Link to="/">Guitar Shop</Link></h1>
               </div>
               <div className='navigate'>
                   <ul>
-                      <li>Shop</li>
-                      <li>About</li>
+                      <li><Link  to="/shop">Shop</Link></li>
+                      <li><Link to="/about">About</Link></li>
                       <li>Contact</li>
                       {Auth.loggedIn() ? (
                           

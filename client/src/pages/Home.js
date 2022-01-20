@@ -21,6 +21,7 @@ const Home = () => {
         <div>
           {loggedIn && userData? (
             <div className="filter_bar">
+              <div>
               <select>
                   <option selected  value="">Brands</option>
                   <option value="grapefruit">Grapefruit</option>
@@ -40,7 +41,13 @@ const Home = () => {
                   <option  value="coconut">Coconut</option>
                   <option value="mango">Mango</option>
                </select>
+               </div>
+               <div className='cart'> 
+                <p>🛒</p>
             
+               </div>
+
+               
             </div>
           ): null}
           <div>
@@ -48,7 +55,7 @@ const Home = () => {
               <div>Loading...</div>
             ) : (
               <div>
-                <ProductList products={products} title="Available guitars: " />
+                <ProductList  products={products} title="Available guitars: " />
                 {/* <Guitar products={products}/> */}
               </div>
             )}
