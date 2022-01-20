@@ -9,7 +9,7 @@ const totalPrice = itemsPrice
         <aside>
           <h2>Cart Items</h2>
           <div>
-            {cartItems.length === 0 && <div>Cart Is Empty</div>}
+            <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div>
             {cartItems.map((item)=> (
               <div key={item.id}>
                 <div>{item.brand}</div>

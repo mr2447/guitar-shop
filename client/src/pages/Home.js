@@ -10,7 +10,7 @@ import Auth from '../utils/auth'
 import Basket from './Basket';
 import HeaderBasket from './HeaderBasket'
 import MainBasket from './MainBasket';
-import Search from './Search'
+// import Search from './Search'
 
 
 const Home = () => {
@@ -26,6 +26,7 @@ const Home = () => {
      
     //SHOPPING CART~~~~~~~~~~~
     const [cartItems, setCartItems] = useState([]);
+    
     const onAdd = (product) => {
       //ITS IS PRODUCT._ID!!!
       const exist = cartItems.find(x => x._id === product._id);
@@ -39,14 +40,15 @@ const Home = () => {
         setCartItems([...cartItems, {...product, qty: 1 }])
       }
     };
+    
     const onRemove = (product) => {
-      const exist  = cartItems.find((x)=> x.id === product.id);
+      const exist  = cartItems.find((x)=> x._id === product._id);
       if(exist.qty === 1) {
-        setCartItems(cartItems.filter((x)=> x.id !== product.id))
+        setCartItems(cartItems.filter((x)=> x._id !== product._id))
       } else {
         setCartItems(
           cartItems.map(x => 
-            x.id === product.id ? {...exist, qty: exist.qty - 1 } : x
+            x._id === product._id ? {...exist, qty: exist.qty - 1 } : x
         ));
       }
     }
@@ -105,9 +107,9 @@ const Home = () => {
                   <ProductItem item={item} key={item._id}/>    
                 ))}  
                 </div>
-                <div>
+                {/* <div>
                   <Search products={products}/>
-                </div>
+                </div> */}
                 
               </div>
              

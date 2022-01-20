@@ -59,9 +59,8 @@ const ProductForm = ({myImage}) => {
               
             }
           });
-
           console.log(data)
-    
+          setFormState({...formState, brand: '', price: '', condition: '', color: ''})
 
         } catch (e) {
             console.error(e)

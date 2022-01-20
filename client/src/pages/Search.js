@@ -11,6 +11,7 @@ const Search = (products) => {
    const [data, setData] = useState(dataList)
     
    const excludeColumns = ['id', 'color'];
+
    const handleChange = value => {
        setSearchText(value)
        filterData(value)
@@ -48,11 +49,11 @@ const Search = (products) => {
                         </div>
                         
                     })}
-            <div> 
-                <p>
-                    {data.length === 0 && <span>No records found to display!</span>}
-                </p>
-            </div>
+                  <div> 
+                     <p>
+                         {data.length === 0 && <span>No records found to display!</span>}
+                     </p>
+                  </div>
             </div>
         </div>
     )

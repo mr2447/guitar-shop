@@ -96,6 +96,15 @@ const resolvers = {
                 return updatedProduct;
             }
             throw new AuthenticationError('You need to be logged in!')
+        },
+        deleteProduct: async (parent, {productId}, context, info) => {
+            if(context.user) {
+                const deletedProduct = await await Product.findOneAndDelete(
+                    {_id: productId}
+                );
+                return  deletedProduct
+            }
+           
         }
     }
 }
