@@ -74,7 +74,7 @@ const ProductList = (props) => {
             </div>
             <div className='itemEl'>
               <div>
-                <p>${product.price}.99</p>
+                <p>${product.price + 0.94}</p>
               </div>
               <div>
                 <Product onAdd={onAdd} product={product} />
