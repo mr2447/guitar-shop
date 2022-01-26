@@ -34,7 +34,7 @@ const Home = (props) => {
       if(exist) {
         setCartItems(
           cartItems.map(x => 
-            x._id === product._id ? {...exist, qty: exist.qty + 1 } : x
+            x._id === product._id ? {...exist, qty: exist.qty + 1.94 } : x
         ));
       } else {
 
