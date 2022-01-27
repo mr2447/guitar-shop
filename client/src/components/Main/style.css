@@ -34,3 +34,28 @@
 .main_btn:hover{
     box-shadow: .3px .3px 19px .5px rgb(244, 215, 215) ;
 }
+@media screen and (max-width: 575px){
+    .container{
+        flex-flow: column-reverse;
+    }
+    .hero_img img{
+        width: 360px;
+        border-bottom-left-radius:0px ;
+        margin-left: 1em;
+        margin-bottom: 4em;
+        
+    }
+    .hero_txt{
+        font-size: 25px;
+        margin-left: 1em;
+        margin-top: 0;
+       
+    }
+    .main_btn{
+        position:static;
+        margin-left:5em;
+        color:rgba(213, 209, 209, 0.503);
+        border: .8px solid (213, 209, 209, 0.503);
+
+    }
+}
