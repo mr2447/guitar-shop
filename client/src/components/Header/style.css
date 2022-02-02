@@ -21,8 +21,6 @@
  list-style-type: none;
  margin-right: 2em;
  margin-top: 10px;
- 
-
 }
 .navigate ul li{
     margin: 25px;
@@ -52,40 +50,72 @@
     font-size: 59px;
     text-shadow: .5px .8px 6px rgb(237, 166, 112);
     padding-right: .4em;
-    margin-bottom: 20px;
-    
+    margin-bottom: 20px; 
     
 }
-
+.menu-img{
+    display: none;
+}
+.exit-btn img{
+    display: none;
+}
 @media screen and (max-width: 575px){
    .nav{
+       position: fixed;
+       top: 0;
+       right: 0;
+       left: 0;
        width: 100%; 
        background-color: black;
        border-bottom:none;
+       display: flex;
+       justify-content: space-evenly;
+    }
+    .t_brand{
+        display: flex;
+        justify-content: space-evenly;
+        width: 375px;
+       
+    }
+    .menu-img{
+        display: block;
+    }
+    .menu-img img{
+        width: 70px;
+        margin-left: 4em;
     }
     .navigate ul li{
         display: flex;
         flex-flow: column;
         font-size: 18px;
         text-align: right;
-        color: red;
-        
+    }
+    .clear{
+        color: whitesmoke;
+    }
+    .divide{
+        color: whitesmoke;
     }
     .navigate ul{
         display: flex;
         flex-flow: column;
         padding: 0;
-        
-
     }
     .navigate{
         position: absolute;
         width:400px;
         top: 0;
         right: 0;
-        background-color: seashell;
+        background-color: rgb(21, 21, 21);
         height: 320px;
-        display: none;
+        /* display: none; */
+    }
+    .exit-btn img{
+        display: block;
+        position: absolute;
+        left: 50px;
+        top: 30px;
+        width: 20px;
     }
     .divide{
         margin-left: 0;
@@ -95,8 +125,10 @@
         font-weight: 600;
     }
     .logo{
-        font-size: 55px;
+        font-size: 35px;
         color: whitesmoke;
-        margin-left: 1.3em;
+        width: 120px;
+       
     }
+   
 }

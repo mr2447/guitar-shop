@@ -54,7 +54,10 @@ const Signup = () => {
             <form 
             className='login_form'
             onSubmit={handleFormSubmit}>
-               <label htmlFor='username'>Username</label>
+               <label  
+               className='label2' 
+               htmlFor='username'
+               >Username</label>
               <input
                 className='form-input'
                 placeholder='Your username'
@@ -64,7 +67,10 @@ const Signup = () => {
                 value={formState.username}
                 onChange={handleChange}
               />
-               <label htmlFor='email'>Email</label>
+               <label
+               className='label2'
+                htmlFor='email'
+                >Email</label>
               <input
                 className='form-input'
                 placeholder='Your email'
@@ -74,7 +80,10 @@ const Signup = () => {
                 value={formState.email}
                 onChange={handleChange}
               />
-               <label htmlFor='password'>Password</label>
+               <label
+               className='label2'
+                htmlFor='password'
+                >Password</label>
               <input
                 className='form-input'
                 placeholder='******'

@@ -17,7 +17,7 @@
     width: 220px;
     margin-top: 2em;
 }
-.input_boxx input, label{
+.input_boxx input, .label{
     padding: 5px;
    
 }
@@ -39,7 +39,7 @@
     border-radius: 9px;
     font-family: sans-serif;
 }
-.input_boxx label{
+.input_boxx .label{
     color: black;
     font-size: 19px;
 }
@@ -52,4 +52,42 @@
     border-radius: 5px;
     background-color: rgb(76, 135, 208);
     color: whitesmoke;
+}
+@media screen and (max-width: 575px){
+    .contact_section{
+       flex-direction: column;
+       justify-content: center;
+    }
+    .contact_img img{
+        display: none;
+    }
+
+    .contact_form form{
+        
+      width: 200px;
+     
+    }
+    .input_boxx input{
+        width: 200px;
+        font-size: 18px;
+    }
+    .input_boxx textarea{
+        width: 210px;
+        font-size: 18px;
+    }
+    .contact_title h4{
+        margin: 0;
+        margin-top: 3em;
+        font-size: 32px;
+        font-weight: 190;
+        text-align: center;
+    }
+    .btn_contact{
+        display: flex;
+        justify-content: center;
+    }
+
+    /* .btn_contact button{
+       margin: 20px;
+    } */
 }

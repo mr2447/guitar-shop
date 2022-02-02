@@ -37,6 +37,7 @@
 @media screen and (max-width: 575px){
     .container{
         flex-flow: column-reverse;
+        padding-top: 6em;
     }
     .hero_img img{
         width: 360px;

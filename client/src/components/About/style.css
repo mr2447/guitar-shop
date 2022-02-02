@@ -41,3 +41,31 @@ h3{
 .contain2 h3{
     text-align: left;
 }
+@media screen and (max-width: 575px){
+  .contain{
+      padding-top: 9em;
+      flex-direction: column-reverse;
+  }
+  .contain2{
+      flex-direction: column-reverse;
+  }
+  .about_img img{
+      width: 300px;
+      margin-left: 2.5em;
+      border-top-right-radius:0;
+      border-bottom-right-radius:0;
+  }
+
+  .about_img2 img{
+    width: 300px;
+    margin-left: 2.4em;
+    border-top-left-radius:0;
+  }
+
+  .about_title h3{
+     font-size: 12vw;
+     width: 80%;
+     text-align: center;
+  }
+
+}
