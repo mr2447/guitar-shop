@@ -64,9 +64,7 @@ function Header(){
                           <li> <Link 
                           className='divide' 
                           to="/" 
-                          onClick={(
-                              logout,
-                              ()=> setNavSelected(false))}>
+                          onClick={logout}>
                               Logout</Link>
                               <Link className='divide' to="/profile">Me</Link>
                           </li>
