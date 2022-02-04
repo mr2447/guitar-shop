@@ -18,8 +18,9 @@ function Header(){
     }
 
     useEffect(() => {
-        window.addEventListener("resize", handleResize)
-      })
+      window.addEventListener("resize", handleResize)
+      window.addEventListener("load", handleResize)
+     })
 
   return(
       <section>

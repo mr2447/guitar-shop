@@ -151,5 +151,21 @@
 }
 
 @media screen and (max-width: 575px){
-    
+    .login_cont{
+        justify-content: center;
+        margin-top: 5em;
+        background-color: #f0ebd8;
+        padding-bottom: 8em;
+    }
+    .login_img img{
+        display: none;
+    }
+    .login_form{
+        width: 300px;
+    }
+    .login_form input,.label2,.btn_login{
+        width: 250px;
+        padding: .8em;
+       
+    }
 }
