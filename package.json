@@ -2,7 +2,7 @@
   "name": "guitar-shop",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "node server/server.js",
   "dependencies": {
     "apollo-server-express": "^2.15.0",
     "axios": "^0.24.0",
