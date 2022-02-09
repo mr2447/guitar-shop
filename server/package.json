@@ -21,6 +21,7 @@
     "graphql": "^15.5.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.9",
+    "server": "^1.0.37",
     "stripe": "^8.198.0"
   },
   "devDependencies": {
