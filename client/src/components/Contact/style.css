@@ -51,7 +51,7 @@
     border: .4px solid lightgray;
     border-radius: 5px;
     background-color: rgb(76, 135, 208);
-    color: whitesmoke;
+    color: rgb(238, 199, 199);
 }
 .contact_title h4{
     display: none;
