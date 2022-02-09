@@ -70,6 +70,7 @@
     .contact_form form{
         
       width: 200px;
+       border: 1px;
      
     }
     .input_boxx input{
